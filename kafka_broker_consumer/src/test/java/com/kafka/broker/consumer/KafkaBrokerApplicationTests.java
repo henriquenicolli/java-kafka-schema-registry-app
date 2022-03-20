@@ -1,4 +1,4 @@
-package com.kafka.broker.example.kafka_broker;
+package com.kafka.broker.consumer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
