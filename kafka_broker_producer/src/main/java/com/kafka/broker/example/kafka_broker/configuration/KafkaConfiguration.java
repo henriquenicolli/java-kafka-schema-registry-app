@@ -1,5 +1,7 @@
 package com.kafka.broker.example.kafka_broker.configuration;
 
+import io.confluent.kafka.serializers.KafkaAvroSerializer;
+import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -28,5 +30,20 @@ public class KafkaConfiguration {
         return new KafkaTemplate<>(producerFactory());
     }
 
+
+    @Bean
+    public ProducerFactory<String, GenericRecord> producerGenericRecordFactory() {
+        Map<String, Object> configProps = new HashMap<>();
+        configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
+        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
+        configProps.put("schema.registry.url", "http://localhost:8085");
+        return new DefaultKafkaProducerFactory<>(configProps);
+    }
+
+    @Bean
+    public KafkaTemplate<String, GenericRecord> generickafkaTemplate() {
+        return new KafkaTemplate<String, GenericRecord>(producerGenericRecordFactory());
+    }
 
 }

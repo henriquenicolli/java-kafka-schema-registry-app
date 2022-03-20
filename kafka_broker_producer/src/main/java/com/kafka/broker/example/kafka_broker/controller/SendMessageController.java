@@ -1,6 +1,7 @@
 package com.kafka.broker.example.kafka_broker.controller;
 
-import com.kafka.broker.example.kafka_broker.producer.TestekafkaProducer;
+import com.kafka.broker.example.kafka_broker.producer.AvroMessageProducer;
+import com.kafka.broker.example.kafka_broker.producer.StringMessagekafkaProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,15 +10,27 @@ import org.springframework.web.bind.annotation.RestController;
 public class SendMessageController {
 
     @Autowired
-    private TestekafkaProducer testekafkaProducer;
+    private StringMessagekafkaProducer stringMessagekafkaProducer;
 
-    @GetMapping("/send")
-    public void sendMessage(){
+    @Autowired
+    private AvroMessageProducer avroMessageProducer;
+
+    @GetMapping("/send/string")
+    public void sendStringMessage(){
         System.out.println("Sendding message..");
 
-        testekafkaProducer.sendMessage("message");
+        for(int i = 0; i <= 100000; i++) {
+            stringMessagekafkaProducer.sendMessage("message ->" + i);
+        }
+    }
 
-        System.out.println("Mensagem enviada..");
+    @GetMapping("/send/avro")
+    public void sendAvroMessage(){
+        System.out.println("Sendding message..");
+
+        for(int i = 0; i <= 100000; i++) {
+            avroMessageProducer.sendAvro();
+        }
     }
 
 }

@@ -8,7 +8,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
 @Service
-public class TestekafkaProducer {
+public class StringMessagekafkaProducer {
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
