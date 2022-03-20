@@ -1,4 +1,4 @@
-package com.kafka.broker.example.kafka_broker.producer;
+package com.kafka.broker.producer.producer;
 
 import com.kafka.teste.schema.Employee;
 import org.apache.avro.generic.GenericRecord;

@@ -1,4 +1,4 @@
-package com.kafka.broker.example.kafka_broker.configuration;
+package com.kafka.broker.producer.configuration;
 
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import org.apache.avro.generic.GenericRecord;

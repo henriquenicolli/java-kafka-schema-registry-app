@@ -1,4 +1,4 @@
-package com.kafka.broker.example.kafka_broker;
+package com.kafka.broker.producer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
