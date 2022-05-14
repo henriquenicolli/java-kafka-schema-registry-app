@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AvroMessageConsumer {
 
-    @KafkaListener(topics = "topico_teste_2", groupId = "meu_grupo_id", containerFactory = "kafkaAvroListenerContainerFactory")
+    @KafkaListener(topics = "${topic-avro-name}", groupId = "${group_id}", containerFactory = "kafkaAvroListenerContainerFactory")
     public void listenGroupFoo(Employee avro) {
         System.out.println("Received employee id: " + avro.getId());
     }

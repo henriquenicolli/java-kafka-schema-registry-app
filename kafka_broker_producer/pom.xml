@@ -11,9 +11,9 @@
 	</parent>
 
 	<groupId>com.kafka.broker.example</groupId>
-	<artifactId>kafka_broker</artifactId>
+	<artifactId>kafka_broker_producer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>kafka_broker</name>
+	<name>kafka_broker_producer</name>
 	<description>Demo project for Spring Boot</description>
 
 	<repositories>
