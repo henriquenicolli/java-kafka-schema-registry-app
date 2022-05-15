@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @Service
@@ -24,9 +23,9 @@ public class MensagemService {
     @Transactional
     public CompletableFuture<MensagemEntity> save(MensagemEntity mensagem) {
         long start = System.currentTimeMillis();
-        logger.info("saving message {}", mensagem.getMensagem(), "" + Thread.currentThread().getName());
+        logger.info("saving message {}", mensagem.getMensagem(), Thread.currentThread().getName());
 
-        mensagemRepository.save(mensagem);
+        mensagemRepository.saveAndFlush(mensagem);
 
         long end = System.currentTimeMillis();
         logger.info("Total time {}", (end - start));
