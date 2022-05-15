@@ -21,7 +21,7 @@ public class SendMessageController {
         System.out.println("Sendding message..");
 
         for(int i = 0; i <= message_count; i++) {
-            stringMessagekafkaProducer.sendMessage("message ->" + i);
+            stringMessagekafkaProducer.sendMessage("message -> " + i);
         }
     }
 
